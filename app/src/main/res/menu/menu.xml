@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item android:id="@+id/action_search"
+        android:title="Search"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="always"
+        app:actionViewClass="android.support.v7.widget.SearchView" />
+
+    <item android:id="@+id/sort_location"
+        android:title="Sort by Location"
+        app:showAsAction="never"
+        android:onClick="sortLocation"/>
+    <item android:id="@+id/sort_date"
+        android:title="Sort by Date"
+        app:showAsAction="never"
+        android:onClick="sortDate"/>
+    <item android:id="@+id/sort_Mag"
+        android:title="Display Largest Magnitude"
+        app:showAsAction="never"
+        android:onClick="sortMag"/>
+    <item android:id="@+id/sort_south"
+        android:title="Most Southern Earthquake"
+        app:showAsAction="never"
+        android:onClick="sort_north"/>
+    <item android:id="@+id/sort_north"
+        android:title="Most Northern Earthquake"
+        app:showAsAction="never"
+        android:onClick="sort_south"/>
+    <item android:id="@+id/sort_east"
+        android:title="Most Eastern Earthquake"
+        app:showAsAction="never"
+        android:onClick="sort_east"/>
+    <item android:id="@+id/sort_west"
+        android:title="Most Western Earthquake"
+        app:showAsAction="never"
+        android:onClick="sort_west"/>
+    <item android:id="@+id/sort_deepest"
+        android:title="Deepest Earthquake"
+        app:showAsAction="never"
+        android:onClick="sort_deepest"/>
+    <item android:id="@+id/sort_shallow"
+        android:title="Shallowest Earthquake"
+        app:showAsAction="never"
+        android:onClick="sort_shallow"/>
+
+</menu>

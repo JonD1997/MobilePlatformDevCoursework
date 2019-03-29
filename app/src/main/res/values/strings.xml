@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MobilePlatformDevelopmentCoursework</string>
+    <string name="search_hint">Type few letters of customer</string>
+</resources>

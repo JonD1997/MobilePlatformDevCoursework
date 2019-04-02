@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.support.v7.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import org.xmlpull.v1.XmlPullParser;
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu, menu);
 
         MenuItem myActionMenuItem = menu.findItem(R.id.action_search);
+        MenuItem refreshButton = menu.findItem(R.id.refresh);
         SearchView searchView = (SearchView)myActionMenuItem.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -86,9 +88,19 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+
         return true;
     }
     //---------------------------//MENU SETUP END //---------------------------//
+
+
+    public void Refresh(MenuItem menuItem){
+        Collections.sort(earthquakesList, Collections.reverseOrder(new CustomComparatorDate()));
+        mAdapter.notifyDataSetChanged();
+        Toast.makeText(this, "Refresh Successful!", Toast.LENGTH_LONG).show();
+        System.out.println("works");
+    }
 
     //---------------------------//SORTING METHODS //---------------------------//
     public void sortLocation(MenuItem menuItem){

@@ -2,19 +2,27 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <item android:id="@+id/refresh"
+        android:title="Search"
+        android:icon="@drawable/ic_refresh"
+        app:showAsAction="always"
+        android:onClick="Refresh"
+        />
 
     <item android:id="@+id/action_search"
-        android:title="Search"
-        android:icon="@android:drawable/ic_menu_search"
-        app:showAsAction="always"
-        app:actionViewClass="android.support.v7.widget.SearchView" />
+    android:title="Search"
+    android:icon="@android:drawable/ic_menu_search"
+    app:showAsAction="always"
+    app:actionViewClass="android.support.v7.widget.SearchView" />
+
+
 
     <item android:id="@+id/sort_location"
         android:title="Sort by Location"
         app:showAsAction="never"
         android:onClick="sortLocation"/>
     <item android:id="@+id/sort_date"
-        android:title="Sort by Date"
+        android:title="Sort by Date(Ascending)"
         app:showAsAction="never"
         android:onClick="sortDate"/>
     <item android:id="@+id/sort_Mag"

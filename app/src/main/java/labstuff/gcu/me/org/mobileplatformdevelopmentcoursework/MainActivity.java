@@ -106,46 +106,55 @@ public class MainActivity extends AppCompatActivity {
     public void sortLocation(MenuItem menuItem){
         Collections.sort(earthquakesList, new CustomComparatorLocation());
         mAdapter.notifyDataSetChanged();
+        Toast.makeText(this, "Sorted by Location!", Toast.LENGTH_LONG).show();
         System.out.println("works");
     }
     public void sortDate(MenuItem menuItem){
         Collections.sort(earthquakesList, new CustomComparatorDate());
         mAdapter.notifyDataSetChanged();
+        Toast.makeText(this, "Sorted by Oldest to Newest!", Toast.LENGTH_LONG).show();
         System.out.println("works");
     }
     public void sortMag(MenuItem menuItem){
         Collections.sort(earthquakesList, Collections.reverseOrder(new CustomComparatorMag()));
         mAdapter.notifyDataSetChanged();
+        Toast.makeText(this, "Sorted by Largest Magnitude!", Toast.LENGTH_LONG).show();
         System.out.println("works");
     }
     public void sort_north(MenuItem menuItem){
         Collections.sort(earthquakesList, new CustomComparatorLat());
         mAdapter.notifyDataSetChanged();
+        Toast.makeText(this, "Sorted by Most Southern Earthquake!", Toast.LENGTH_LONG).show();
         System.out.println("works");
     }
     public void sort_south(MenuItem menuItem){
         Collections.sort(earthquakesList, Collections.reverseOrder(new CustomComparatorLat()));
         mAdapter.notifyDataSetChanged();
+        Toast.makeText(this, "Sorted by Most Northern Earthquake!", Toast.LENGTH_LONG).show();
         System.out.println("works");
     }
     public void sort_east(MenuItem menuItem){
         Collections.sort(earthquakesList, Collections.reverseOrder(new CustomComparatorLong()));
         mAdapter.notifyDataSetChanged();
+        Toast.makeText(this, "Sorted by Most Eastern Earthquake!", Toast.LENGTH_LONG).show();
         System.out.println("works");
     }
     public void sort_west(MenuItem menuItem){
         Collections.sort(earthquakesList, new CustomComparatorLong());
         mAdapter.notifyDataSetChanged();
+        Toast.makeText(this, "Sorted by Most Western Earthquake!", Toast.LENGTH_LONG).show();
         System.out.println("works");
     }
     public void sort_shallow(MenuItem menuItem){
         Collections.sort(earthquakesList, new CustomComparatorDepth());
         mAdapter.notifyDataSetChanged();
+        Toast.makeText(this, "Sorted by Shallowest Earthquake!", Toast.LENGTH_LONG).show();
         System.out.println("works");
     }
     public void sort_deepest(MenuItem menuItem){
         Collections.sort(earthquakesList, Collections.reverseOrder(new CustomComparatorDepth()));
         mAdapter.notifyDataSetChanged();
+        Toast.makeText(this, "Sorted by Deepest Earthquake!", Toast.LENGTH_LONG).show();
         System.out.println("works");
     }
 

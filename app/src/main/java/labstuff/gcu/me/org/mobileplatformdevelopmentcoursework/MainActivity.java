@@ -1,12 +1,15 @@
 package labstuff.gcu.me.org.mobileplatformdevelopmentcoursework;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +20,10 @@ import android.support.v7.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
+import com.google.android.gms.common.api.GoogleApiActivity;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -39,6 +46,7 @@ import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int ERROR_DIALOG_REQUEST = 9001;
     private ListView listView;
     private QuakeAdapter mAdapter;
     SearchView mySearchView = null;
@@ -51,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.quake_listview);
 
+        if(isServicesOK()){
+            init();
+        }
         try{
             Exception otherthreadresult = new otherThread().execute().get();
         } catch (InterruptedException e){
@@ -60,6 +71,42 @@ public class MainActivity extends AppCompatActivity {
         }
         mAdapter = new QuakeAdapter(this,earthquakesList);
         listView.setAdapter(mAdapter);
+
+
+    }
+
+    private void init(){
+        Button btnMap = (Button) findViewById(R.id.btnMap);
+        btnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent intent = new Intent(MainActivity.this, MapActivity.class);
+                Intent intent = new Intent(getApplicationContext(),MapActivity.class);
+                intent.putExtra("Earthquake", earthquakesList);
+                startActivity(intent);
+
+            }
+        });
+    }
+
+    public boolean isServicesOK() {
+        Log.e("Check Maps", "Checking Services");
+
+        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(MainActivity.this);
+
+        if (available == ConnectionResult.SUCCESS) {
+            //MAKE REQUESTS
+            Log.e("Worked", "Google Play is OK");
+            return true;
+        } else if (GoogleApiAvailability.getInstance().isUserResolvableError(available)) {
+            //Error but can be fixed
+            Log.e("Broke", "Google Play is not ok");
+            Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(MainActivity.this, available, ERROR_DIALOG_REQUEST);
+            dialog.show();
+        } else {
+            Toast.makeText(this, "cannot connect", Toast.LENGTH_SHORT).show();
+        }
+        return false;
     }
 
     //---------------------------//MENU SETUP //---------------------------//

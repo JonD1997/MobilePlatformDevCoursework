@@ -1,12 +1,15 @@
 package labstuff.gcu.me.org.mobileplatformdevelopmentcoursework;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.text.DateFormat;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Earthquake {
+public class Earthquake implements Parcelable {
 
     private String location;
     private Date date;
@@ -15,18 +18,49 @@ public class Earthquake {
     private double depth;
     private double magnitude;
 
-    public Earthquake() {
+    public Earthquake()
+    {
 
     }
 
-    public Earthquake(String location, Date date, double geolat, double geolong, double depth, double magnitude) {
-        this.location = location;
-        this.date = date;
-        this.geolat = geolat;
-        this.geolong = geolong;
-        this.depth = depth;
-        this.magnitude = magnitude;
+    private Earthquake(Parcel in) {
+        location = in.readString();
+        date = new Date(in.readLong());
+        geolat = in.readDouble();
+        geolong = in.readDouble();
+        depth = in.readDouble();
+        magnitude = in.readDouble();
+
     }
+
+    @Override
+    public int describeContents() {
+        // TODO Auto-generated method stub
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+        dest.writeString(location);
+        dest.writeLong(date.getTime());
+        dest.writeDouble(geolat);
+        dest.writeDouble(geolong);
+        dest.writeDouble(depth);
+        dest.writeDouble(magnitude);
+
+    }
+
+    public static final Parcelable.Creator<Earthquake> CREATOR = new Parcelable.Creator<Earthquake>() {
+        public Earthquake createFromParcel(Parcel in) {
+            return new Earthquake(in);
+        }
+
+        public Earthquake[] newArray(int size) {
+            return new Earthquake[size];
+
+        }
+    };
 
 
     public String getLocation() {
@@ -105,4 +139,5 @@ public class Earthquake {
                 ", magnitude=" + magnitude +
                 '}';
     }
+
 }

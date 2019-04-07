@@ -16,11 +16,26 @@
                             <entry key="actionbar">
                               <value>
                                 <PersistentState>
+                                  <option name="children">
+                                    <map>
+                                      <entry key="image">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="paddingPercent" value="5" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
+                                    </map>
+                                  </option>
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="C:\Users\jondo\AndroidStudioProjects\Jon_Doherty_S1514958\MobilePlatformDevelopment\MobilePlatformDevelopment\app\src\main\res\drawable\refresh.png" />
-                                      <entry key="outputName" value="ic_refresh" />
+                                      <entry key="imageAsset" value="C:\Users\jondo\AndroidStudioProjects\Jon_Doherty_S1514958\MobilePlatformDevelopment\MobilePlatformDevelopment\app\src\main\res\drawable\map.png" />
+                                      <entry key="outputName" value="ic_map" />
                                       <entry key="theme" value="HOLO_DARK" />
                                     </map>
                                   </option>

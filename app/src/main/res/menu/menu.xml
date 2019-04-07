@@ -9,20 +9,25 @@
         android:onClick="Refresh"
         />
 
+    <item android:id="@+id/map_click"
+        android:title="Map Button"
+        android:icon="@drawable/ic_map"
+        app:showAsAction="always"
+        android:onClick="Map"
+        />
+
     <item android:id="@+id/action_search"
     android:title="Search"
     android:icon="@android:drawable/ic_menu_search"
     app:showAsAction="always"
     app:actionViewClass="android.support.v7.widget.SearchView" />
 
-
-
     <item android:id="@+id/sort_location"
         android:title="Sort by Location"
         app:showAsAction="never"
         android:onClick="sortLocation"/>
     <item android:id="@+id/sort_date"
-        android:title="Sort by Date(Ascending)"
+        android:title="Sort by Date(Old -> New)"
         app:showAsAction="never"
         android:onClick="sortDate"/>
     <item android:id="@+id/sort_Mag"

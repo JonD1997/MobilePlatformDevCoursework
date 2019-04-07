@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.support.v7.widget.SearchView;
 import android.widget.TextView;
@@ -59,9 +60,6 @@ public class MainActivity extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.quake_listview);
 
-        if(isServicesOK()){
-            init();
-        }
         try{
             Exception otherthreadresult = new otherThread().execute().get();
         } catch (InterruptedException e){
@@ -74,40 +72,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-    private void init(){
-        Button btnMap = (Button) findViewById(R.id.btnMap);
-        btnMap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Intent intent = new Intent(MainActivity.this, MapActivity.class);
-                Intent intent = new Intent(getApplicationContext(),MapActivity.class);
-                intent.putExtra("Earthquake", earthquakesList);
-                startActivity(intent);
-
-            }
-        });
+    public void Map (MenuItem menuItem){
+        Intent intent = new Intent(getApplicationContext(),MapActivity.class);
+        intent.putExtra("Earthquake", earthquakesList);
+        startActivity(intent);
     }
 
-    public boolean isServicesOK() {
-        Log.e("Check Maps", "Checking Services");
-
-        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(MainActivity.this);
-
-        if (available == ConnectionResult.SUCCESS) {
-            //MAKE REQUESTS
-            Log.e("Worked", "Google Play is OK");
-            return true;
-        } else if (GoogleApiAvailability.getInstance().isUserResolvableError(available)) {
-            //Error but can be fixed
-            Log.e("Broke", "Google Play is not ok");
-            Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(MainActivity.this, available, ERROR_DIALOG_REQUEST);
-            dialog.show();
-        } else {
-            Toast.makeText(this, "cannot connect", Toast.LENGTH_SHORT).show();
-        }
-        return false;
-    }
 
     //---------------------------//MENU SETUP //---------------------------//
     @Override

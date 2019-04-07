@@ -9,7 +9,11 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -63,5 +67,19 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private void initMap() {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(MapActivity.this);
+    }
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.mapsmenu, menu);
+
+        MenuItem backbutton = menu.findItem(R.id.back);
+        return true;
+    }
+
+    public void Back (MenuItem menuItem){
+        onBackPressed();
     }
 }

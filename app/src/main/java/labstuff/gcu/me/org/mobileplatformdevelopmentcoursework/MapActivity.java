@@ -47,8 +47,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         myMap = googleMap;
         myMap.getUiSettings().setZoomControlsEnabled(true);
 
-        LatLng marker = new LatLng(54.7676117, -7.4737902);
-        myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker, 4));
+        LatLng marker = new LatLng(53.982188, -2.116653);
+        myMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker, 5));
 
         for (int i = 0; i < quakesMapped.size(); i++) {
             displayMarker(quakesMapped.get(i).getGeolat(), quakesMapped.get(i).getGeolong(), quakesMapped.get(i).getLocation(), quakesMapped.get(i).getMagnitude());

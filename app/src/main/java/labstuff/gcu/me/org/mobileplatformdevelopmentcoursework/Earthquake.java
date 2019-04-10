@@ -1,12 +1,15 @@
 package labstuff.gcu.me.org.mobileplatformdevelopmentcoursework;
 
+//
+// Name                 Jon Doherty
+// Student ID           S1514958
+// Programme of Study   Computing
+//
+
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import java.text.DateFormat;
 import java.text.Format;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 public class Earthquake implements Parcelable {
@@ -61,7 +64,6 @@ public class Earthquake implements Parcelable {
 
         }
     };
-
 
     public String getLocation() {
         return location;
@@ -126,7 +128,6 @@ public class Earthquake implements Parcelable {
     public void setMagnitude(double magnitude) {
         this.magnitude = magnitude;
     }
-
 
     @Override
     public String toString() {

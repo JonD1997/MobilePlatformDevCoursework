@@ -1,20 +1,18 @@
 package labstuff.gcu.me.org.mobileplatformdevelopmentcoursework;
 
+//
+// Name                 Jon Doherty
+// Student ID           S1514958
+// Programme of Study   Computing
+//
+
 import android.content.Context;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,7 +107,8 @@ public class QuakeAdapter extends BaseAdapter {
             for(Earthquake earthquake : arrayList ){
                 if (earthquake.getLocation().toLowerCase(Locale.getDefault()).contains(charText) ||
                         earthquake.getStringMag().toLowerCase(Locale.getDefault()).contains(charText) ||
-                        earthquake.getStringDate().toLowerCase(Locale.getDefault()).contains(charText)){
+                        earthquake.getStringDate().toLowerCase(Locale.getDefault()).contains(charText) ||
+                        earthquake.getStringDepth().toLowerCase(Locale.getDefault()).contains(charText)){
                     earthquakeList.add(earthquake);
                 }
             }

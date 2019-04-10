@@ -1,30 +1,23 @@
 package labstuff.gcu.me.org.mobileplatformdevelopmentcoursework;
 
-import android.app.Dialog;
+//
+// Name                 Jon Doherty
+// Student ID           S1514958
+// Programme of Study   Computing
+//
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.support.v7.widget.SearchView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GoogleApiAvailability;
-import com.google.android.gms.common.api.GoogleApiActivity;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -37,20 +30,16 @@ import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int ERROR_DIALOG_REQUEST = 9001;
     private ListView listView;
     private QuakeAdapter mAdapter;
-    SearchView mySearchView = null;
     ArrayList<Earthquake> earthquakesList = new ArrayList<>();
 
     @Override
@@ -290,8 +279,6 @@ public class MainActivity extends AppCompatActivity {
                                 location = location.replace(" Location: ", "");
                                 newQuake.setLocation(location);
 
-                                //newQuakes.add(newQuake);
-
                                 depth = depth.replace(" Depth: ", "");
                                 depth = depth.replace(" km ", "");
                                 double earthquakeDepth = Double.parseDouble(depth);
@@ -327,10 +314,6 @@ public class MainActivity extends AppCompatActivity {
 
                     eventType = xpp.next();
                 }
-                //earthquakesList.remove(0);
-                System.out.println("Jon" + earthquakesList.toString());
-
-
             } catch (MalformedURLException e) {
                 exception = e;
             } catch (XmlPullParserException e) {
@@ -338,8 +321,6 @@ public class MainActivity extends AppCompatActivity {
             } catch (IOException e) {
                 exception = e;
             }
-
-
             return exception;
         }
         //---------------------------//OTHER THREAD END //---------------------------//
@@ -347,9 +328,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Exception s) {
             super.onPostExecute(s);
-
-
-
             progressDialog.dismiss();
         }
     }

@@ -1,20 +1,16 @@
 package labstuff.gcu.me.org.mobileplatformdevelopmentcoursework;
 
-import android.Manifest;
-import android.content.Intent;
-import android.content.pm.PackageManager;
+//
+// Name                 Jon Doherty
+// Student ID           S1514958
+// Programme of Study   Computing
+//
+
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
-import android.text.TextUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
